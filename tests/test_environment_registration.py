@@ -37,6 +37,20 @@ class TestEnvironmentRegistration:
 
         env.close()
 
+    def test_iter_hybrid_audited_env_registration(self):
+        """Test that `IterHybridAuditedEnv` is registered and can be created with ``gym.make()``."""
+        env = gym.make("gymtorax/IterHybridAudited-v0")
+
+        assert env is not None
+        assert hasattr(env, "action_space")
+        assert hasattr(env, "observation_space")
+
+        from gymtorax.envs.iter_hybrid_audited_env import IterHybridAuditedEnv
+
+        assert isinstance(env.unwrapped, IterHybridAuditedEnv)
+
+        env.close()
+
     def test_test_env_registration(self):
         """Test that `TestEnv` is registered and can be created with ``gym.make()``."""
         # Test that the environment can be created
