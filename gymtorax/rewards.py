@@ -103,3 +103,29 @@ def get_s_profile(state: dict) -> np.ndarray:
         numpy.ndarray: The magnetic shear profile :math:`s`.
     """
     return state["profiles"]["magnetic_shear"]
+
+
+def get_P_SOL(state: dict) -> float:  # noqa: N802
+    r"""Get the power crossing the separatrix :math:`P_{SOL}` from the state dictionary.
+
+    Args:
+        state (dict): The state dictionary containing scalar values.
+
+    Returns:
+        float: The total power crossing the separatrix :math:`P_{SOL}` [W], as
+        computed by TORAX (``P_SOL_total``).
+    """
+    return state["scalars"]["P_SOL_total"][0]
+
+
+def get_P_LH(state: dict) -> float:  # noqa: N802
+    r"""Get the L-H transition threshold power :math:`P_{LH}` from the state dictionary.
+
+    Args:
+        state (dict): The state dictionary containing scalar values.
+
+    Returns:
+        float: The L-H threshold power :math:`P_{LH}` [W], as computed by TORAX
+        (Martin 2008 scaling with a low-density branch).
+    """
+    return state["scalars"]["P_LH"][0]
