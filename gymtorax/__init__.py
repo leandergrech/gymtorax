@@ -3,7 +3,7 @@ from importlib.metadata import PackageNotFoundError, version
 from gymnasium.envs.registration import register
 
 from .agents import IterHybridAgent, PIDAgent, RandomAgent
-from .envs import BaseEnv, IterHybridEnv, TestEnv
+from .envs import BaseEnv, IterHybridAuditedEnv, IterHybridEnv, TestEnv
 
 try:
     __version__ = version("gymtorax")
@@ -18,6 +18,12 @@ register(
 )
 
 register(
+    id="gymtorax/IterHybridAudited-v0",
+    entry_point="gymtorax.envs:IterHybridAuditedEnv",
+    kwargs={},
+)
+
+register(
     id="gymtorax/Test-v0",
     entry_point="gymtorax.envs:TestEnv",
     kwargs={},
@@ -26,6 +32,7 @@ register(
 __all__ = [
     "BaseEnv",
     "IterHybridEnv",
+    "IterHybridAuditedEnv",
     "TestEnv",
     "PIDAgent",
     "IterHybridAgent",
