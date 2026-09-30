@@ -14,12 +14,13 @@ if os.environ.get("CI") or os.environ.get("GITHUB_ACTIONS"):
     matplotlib.use("Agg")
 
 import gymtorax  # noqa: F401  (import registers the environments with Gymnasium)
-from gymtorax.envs import IterHybridEnv, TestEnv
+from gymtorax.envs import IterHybridAuditedEnv, IterHybridEnv, TestEnv
 from tests.conftest import ALL_ENV_IDS
 
 # Expected concrete (unwrapped) class for each registered environment id.
 ENV_CLASSES = {
     "gymtorax/IterHybrid-v0": IterHybridEnv,
+    "gymtorax/IterHybridAudited-v0": IterHybridAuditedEnv,
     "gymtorax/Test-v0": TestEnv,
 }
 

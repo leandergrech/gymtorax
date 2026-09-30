@@ -1,7 +1,11 @@
 import gymnasium as gym
 import pytest
 
-ALL_ENV_IDS = ["gymtorax/IterHybrid-v0", "gymtorax/Test-v0"]
+ALL_ENV_IDS = [
+    "gymtorax/IterHybrid-v0",
+    "gymtorax/IterHybridAudited-v0",
+    "gymtorax/Test-v0",
+]
 
 
 @pytest.fixture
