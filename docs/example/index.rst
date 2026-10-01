@@ -22,6 +22,7 @@ This example is organized into three parts:
    :hidden:
 
    iter_env
+   iter_env_audited
    policies
    results
    config_example

@@ -2,6 +2,17 @@
 
 All notable changes to GymTORAX are documented in this file.
 
+## [Unreleased]
+
+This release adds an ITER hybrid environment with an audited reward, next to the unchanged `IterHybrid-v0`.
+
+### Added
+
+- **`IterHybridAuditedEnv`** (`gymtorax/IterHybridAudited-v0`) - the ITER hybrid scenario with the fusion-gain term capped at `min(Q / 10, 1)` and H-mode counted only while `P_SOL_total >= P_LH`. Configuration, actions and observations are those of `IterHybridEnv`.
+- **`rewards.get_P_SOL` and `rewards.get_P_LH`** - getters for the power crossing the separatrix and the L-H threshold power computed by TORAX.
+- **`examples/reward_exploit.py`** - deterministic reproduction of the uncapped fusion-gain term being exploited by switching the heating off after the prescribed pedestal.
+- **`examples/baselines_audited.py`** - baseline returns on both ITER hybrid environments.
+
 ## [1.1.1] - 2026-07-11
 
 This release updates the GymTORAX documentation for v1.1.
